@@ -1,0 +1,34 @@
+<div class="mt-4">
+
+  <div style="text-align: center;">
+    <h1>SAVED EMPLOYEE DETAILS</h1>
+</div>
+
+  <button routerLink="" style="margin-left: 92% ; margin-top: 20px" class="btn btn-primary">
+    Add
+  </button>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+     <tbody>
+      <tr *ngFor="let emp of empallrecords; let i = index;">
+        <td>{{ i + 1 }}</td>
+        <td>{{ emp.name }}</td>
+        <td>{{ emp.email }}</td>
+        <td>{{ emp.role }}</td>
+        <td>
+          <button [routerLink]="['/employeeid',emp.id]" class="btn btn-warning btn-sm" >Edit</button>
+          <button class="btn btn-danger btn-sm" (click)="deleterecord(emp.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
